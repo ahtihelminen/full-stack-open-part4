@@ -1,7 +1,10 @@
+const jwt = require('jsonwebtoken')
+const config = require('../utils/config')
+
 const Blog = require('../models/blog')
 const User = require('../models/user')
 
-const initalBlogs = [
+const initialBlogs = [
     {
       _id: "5a422a851b54a676234d17f7",
       title: "React patterns",
@@ -52,10 +55,17 @@ const initalBlogs = [
     }  
 ]
 
+const initialUser = 
+  {
+    username: 'initUser',
+    name:'init user',
+    password: 'initial',
+  }
+
 
 const blogsInDb = async () => {
-    const response = await Blog.find({})
-    return response.map(r => r.toJSON())
+  const response = await Blog.find({})
+  return response.map(r => r.toJSON())
 }
 
 const usersInDb = async () => {
@@ -63,8 +73,25 @@ const usersInDb = async () => {
   return response.map(r => r.toJSON())
 }
 
+const userForPostingBlog = async (response) => {
+  const users = await usersInDb()
+  const token = response.body.token
+  const decodedToken = jwt.verify(token, config.SECRET)
+
+  const user_0 = {
+    token: `bearer ${token}`,
+    username: users[0].username,
+    name: users[0].name,
+    id: decodedToken.id
+  }
+
+  return user_0
+}
+
 module.exports = {
-    initalBlogs,
-    blogsInDb,
-    usersInDb,
+  initialBlogs,
+  initialUser,
+  blogsInDb,
+  usersInDb,
+  userForPostingBlog,
 }

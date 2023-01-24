@@ -1,9 +1,11 @@
 POST http://localhost:3003/api/blogs
 Content-Type: application/json
+Authorization: bearer JhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFoIiwiaWQiOiI2M2M3OTk1NjAzMDA2ZTdjYTEzNTZkOWEiLCJpYXQiOjE2NzQ0NTIxOTR9.sDNFAoQ5ri8NnpO9PlX-uCcYmgNYduEu2Zb4veM27Pg
 
 {
     "title": "test",
     "author": "ahti",
     "url": "test.com",
-    "likes": "100"
+    "likes": "100",
+    "user": "63c7995603006e7ca1356d9a"
 }

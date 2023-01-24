@@ -12,7 +12,7 @@ describe('test', () => {
 
 describe('Total likes', () => {
     test('totalLikes returns 36', () => {
-        const result = listHelper.totalLikes(helper.initalBlogs)
+        const result = listHelper.totalLikes(helper.initialBlogs)
         expect(result).toBe(36)
     })
 })
@@ -24,7 +24,7 @@ describe('Blog with most likes', () => {
             author: "Edsger W. Dijkstra",
             likes: 12,
           }
-        const result = listHelper.favoriteBlog(helper.initalBlogs)
+        const result = listHelper.favoriteBlog(helper.initialBlogs)
         expect(result).toEqual(expResult)
     })
 })
@@ -35,7 +35,7 @@ describe('Writer with most blogs', () => {
         author: "Robert C. Martin",
         blogs: 3
       }
-      const result = listHelper.mostBlogs(helper.initalBlogs)
+      const result = listHelper.mostBlogs(helper.initialBlogs)
       expect(result).toEqual(expResult)
     })
     
@@ -48,7 +48,7 @@ describe('Writer with most likes', () => {
       author: "Edsger W. Dijkstra",
       likes: 17
     }
-    const result = listHelper.mostLikes(helper.initalBlogs)
+    const result = listHelper.mostLikes(helper.initialBlogs)
     expect(result).toEqual(expResult)
   })
 })
